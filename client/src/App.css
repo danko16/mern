@@ -1,0 +1,181 @@
+html{
+  min-height: 100%;
+}
+body{
+  margin: 0 auto;
+  min-height: 100%;
+  background: url(/img/mario-bg.png) no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  background-color: #95e8f3;
+}
+
+.Navbar{
+  position: fixed;
+  background: #333;
+  overflow: auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.Navbar .brand{
+  color: #fff;
+  text-decoration: none;
+  float: left;
+  padding: 20px;
+}
+
+.Navbar a{
+  float: right;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.Navbar a.avatar{
+  background: blue;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 5px;
+  margin-right: 20px;
+}
+
+.Navbar a.brand{
+  margin-left: 20px;
+  font-family: serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.active{
+  background: #42af67;
+}
+
+.container{
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.DashBoard{
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.ProjectList{
+  float: left;
+  margin-right: 25px;
+  margin-left: 10%;
+  width: 50%;
+}
+
+.Notification{
+  float: left;
+  width: 25%;
+  height: 450px;
+  border-radius: 5px;
+}
+
+.project {
+  margin-bottom: 10px;
+  background:#fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.project a, .project span{
+  color: #000;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.project .date{
+  font-size: 15px;
+}
+
+.Notification .notif-title{
+  margin: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.ProjectDetail{
+  border: 1px solid #ccc;
+  margin: 70px 25px;
+    background:#fff;
+  border-radius: 5px;
+  padding: 25px;
+  -webkit-box-shadow: 4px 5px 9px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 5px 9px -3px rgba(0,0,0,0.75);
+  box-shadow: 4px 5px 9px -3px rgba(0,0,0,0.75);
+}
+
+.ProjectDetail span{
+  font-size: 25px;
+}
+
+.ProjectDetail .date{
+  color: #333;
+  font-size: 15px;
+}
+
+.ProjectDetail .author{
+  font-size: 20px;
+  font-family: serif;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=checkbox]{
+  padding: 12px 20px;
+  margin: 8px 0;
+  width: 25px;
+}
+
+
+.Login, .Register, .CreateProject {
+  width: 50%;
+  margin: 75px auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.CreateProject textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: none;
+  height: 200px;
+}
