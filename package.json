@@ -9,7 +9,7 @@
     "client-update": "npm update --prefix client",
     "client-outdated": "npm outdated --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js",
+    "server": "nodemon bin/server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
