@@ -1,17 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const config = require('./config/config');
 const path = require('path');
 const cors = require('cors');
 const port = process.env.PORT;
+const db = process.env.MONGO_URI;
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
-const db = config.mongoURI;
 
 mongoose
     .connect(db,{

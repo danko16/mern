@@ -3,7 +3,7 @@ import {GET_PROJECT,ADD_PROJECT,DELETE_PROJECT,ITEMS_LOADING} from './type';
 
 export const getProject = () => dispatch => {
   axios
-    .get('http://localhost:5000/api/project')
+    .get('/api/project')
     .then(res => {
       dispatch({
           type: GET_PROJECT,
@@ -15,7 +15,7 @@ export const getProject = () => dispatch => {
 
 export const addProject = (project) => dispatch => {
     axios
-      .post('http://localhost:5000/api/project', project)
+      .post('/api/project', project)
       .then(res => {
         dispatch({
           type: ADD_PROJECT,
@@ -27,7 +27,7 @@ export const addProject = (project) => dispatch => {
 
 export const deleteProject = (id) => dispatch => {
     axios
-      .delete(`http://localhost:5000/api/project/${id}`)
+      .delete(`/api/project/${id}`)
       .then(res => {
         dispatch({
           type: DELETE_PROJECT,
