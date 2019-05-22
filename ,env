@@ -1,4 +1,0 @@
-NODE_ENV = development/production
-PORT = your port
-MONGO_URI = your mongo uri
-JWT_SECRET =  your jwt secret key
