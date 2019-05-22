@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+
+require('dotenv').config();
 const port = process.env.PORT;
 const db = process.env.MONGO_URI;
 
@@ -19,6 +21,8 @@ mongoose
     .catch(err=>{console.log(err)});
 
 app.use('/api/project', require('./routes/api/project'));
+app.use('/api/user', require('./routes/api/user'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

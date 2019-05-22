@@ -3,13 +3,16 @@ const Schema = mongoose.Schema;
 
 const ProjectSchema = new Schema({
   title: {
-    type: String
+    type: String,
+    required: true
   },
   content: {
-    type: String
+    type: String,
+    required: true
   },
   author: {
-    type: String
+    type: String,
+    required: true
   },
   date: {
     type: Date,
