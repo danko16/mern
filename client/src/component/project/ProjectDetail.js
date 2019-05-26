@@ -8,7 +8,7 @@ class ProjectDetail extends Component{
   }
   handleDelete = (id) => {
     this.props.deleteProject(id);
-    this.props.history.push('/');
+    this.props.history.push('/project');
   }
   render(){
     const {project} = this.props;

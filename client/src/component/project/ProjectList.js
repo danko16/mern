@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ProjectSummary from './ProjectSummary';
-import {getProject, setItemsLoading} from '../../actions/projectAction'
+import {getProject} from '../../actions/projectAction'
 import {connect} from 'react-redux';
 
 class  ProjectList extends Component{
@@ -16,4 +16,4 @@ class  ProjectList extends Component{
   }
 }
 
-export default connect(null,{getProject, setItemsLoading})(ProjectList);
+export default connect(null,{getProject})(ProjectList);

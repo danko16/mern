@@ -22,6 +22,7 @@
 .env
 package-lock.json
 deploy.sh
+/conf
 
 npm-debug.log*
 yarn-debug.log*

@@ -9,8 +9,13 @@ import Register from './component/auth/Register';
 import './App.css';
 import store from './store';
 import {Provider} from 'react-redux';
+import {loadUser} from './actions/authAction';
 
 class App extends Component{
+  componentDidMount(){
+    store.dispatch(loadUser());
+  }
+
   render(){
     return(
       <Provider store={store}>
@@ -18,7 +23,7 @@ class App extends Component{
           <div className="App">
             <Navbar/>
             <Switch>
-              <Route exact path="/" component={DashBoard}/>
+              <Route exact path="/project" component={DashBoard}/>
               <Route path="/project/:id" component={ProjectDetail}/>
               <Route path="/create" component={CreateProject}/>
               <Route path="/login" component={Login}/>

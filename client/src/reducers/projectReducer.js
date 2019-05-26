@@ -5,7 +5,7 @@ const initialState = {
   loading: false
 };
 
-const projectReducer = (state = initialState, action) => {
+export default function (state = initialState, action) {
   let newProjects;
 
   switch (action.type) {
@@ -39,5 +39,3 @@ const projectReducer = (state = initialState, action) => {
       return state;
   }
 }
-
-export default projectReducer;
