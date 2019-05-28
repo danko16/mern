@@ -3,7 +3,7 @@ const router = express.Router();
 const Project = require('../../models/project');
 const auth = require('../../middleware/auth');
 
-router.get('/',auth, (req,res)=>{
+router.get('/', (req,res)=>{
   Project
       .find()
       .sort({date: -1})

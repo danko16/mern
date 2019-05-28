@@ -11,12 +11,12 @@ class CreateProject extends Component{
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addProject(this.state);
-    this.props.history.push('/project');
+    this.props.history.push('/');
   }
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    });
+    });    
   }
   render(){
     return(

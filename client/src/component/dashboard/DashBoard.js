@@ -6,14 +6,15 @@ import {clearErrors} from '../../actions/errorAction';
 import propType from 'prop-types';
 
 class DashBoard extends Component{
+ 
   componentDidMount(){
-    this.props.clearErrors();
+    this.props.clearErrors(); 
   }
   render(){
     return(
       <div className="DashBoard container">
-        <ProjectList/>
         <Notification/>
+        <ProjectList/>        
       </div>
     )
   }

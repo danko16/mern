@@ -13,7 +13,11 @@ const initState = {
     token: localStorage.getItem('token'),
     isAuthorize: null,
     isLoading: false,
-    user: null
+    user: {
+        id: null,
+        name: null,
+        email: null
+    }
 };
 
 export default function(state=initState,action){
@@ -26,16 +30,21 @@ export default function(state=initState,action){
         case USER_LOADED:
             return {
                 ...state,
-                isAuthorize: true,
                 isLoading: false,
-                user: action.payload
+                user: {
+                    id: action.payload.id,
+                    name: action.payload.name,
+                    email: action.payload.email
+                },
+                isAuthorize: true
             };               
         case LOGIN_SUCCESS:      
         case REGISTER_SUCCESS:
             localStorage.setItem('token', action.payload.token);
             return {
                 ...state,
-                ...action.payload,
+                token: action.payload.token,
+                user: action.payload.user,
                 isAuthorize: true,
                 isLoading: false
             }; 
@@ -48,8 +57,8 @@ export default function(state=initState,action){
                 ...state,
                 token: null,
                 user: null,
-                isAuthorize: false,
-                isLoading: false
+                isLoading: false,
+                isAuthorize: false
             };          
         default:
             return state;

@@ -22,7 +22,6 @@ class LoginLinks extends Component{
   render(){
     return(
       <div className={this.props.isAuthorize === true ? "LoginLinks": "LoginLinks hide"}>
-        <Link className="avatar" to="/project">DN</Link>
         <Link className="navlink" onClick={this.logout} to="/logout">Logout</Link>
         <NavLink className="navlink" to="/create">New Project</NavLink>
       </div>

@@ -24,7 +24,7 @@ export const loadUser = () => (dispatch, getState) => {
             });
         })
         .catch(err=>{
-            dispatch(returnErrors(err.response.data.msg, err.response.status, 'GET_PROJECT_FAIL'));
+            dispatch(returnErrors(err.response.data.msg, err.response.status, 'LOAD_USER_FAIL'));
             dispatch({
                 type: AUTH_ERROR
             });

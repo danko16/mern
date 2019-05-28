@@ -45,7 +45,9 @@ router.get('/user',auth, (req,res)=>{
         .select('-password')
         .then(user=>{
             res.json({
-                user
+                id: user._id,
+                name: user.firstName + " " + user.lastName,
+                email: user.email
             });
         })
 });

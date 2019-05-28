@@ -1,13 +1,39 @@
-import React from 'react';
+import React,{Component} from 'react';
+import {connect} from 'react-redux';
 
-const Notification = () => {
-  return(
-    <div className="Notification">
-      <div className="notif-title">
-        <span><b>Notification</b></span>
+class Notification extends Component {
+  render(){
+    const {projects} = this.props;
+    const projectList = projects.length ? (
+      projects.map(project=>{
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' ,hour: 'numeric',minute:'numeric'};
+        const date = new Date(project.date);
+        return(
+          <div className="project" key={project._id}>
+            <p className="title"><b>{project.title}</b></p>
+            <p className="author">{project.author}</p>
+            <p className="date">{date.toLocaleDateString("id-in", options)}</p>
+          </div>
+        )
+      })
+    ) : (<div></div>)
+    return(
+      <div className="Notification">
+        <div className="notif-title">
+          <p><b>Notification</b></p>
+        </div>
+        <div className="project-notif">
+          {projectList}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default Notification;
+const mapStateToPorps = (state) => {
+  return {
+    projects: state.project.projects
+  }
+}
+
+export default connect(mapStateToPorps)(Notification);

@@ -3,11 +3,11 @@ import {GET_PROJECT,ADD_PROJECT,DELETE_PROJECT,ITEMS_LOADING} from './type';
 import {tokenConfig} from './authAction';
 import {returnErrors} from './errorAction';
 
-export const getProject = () => (dispatch,getState) => {
+export const getProject = () => (dispatch) => {
   dispatch({type: ITEMS_LOADING});
 
   axios
-    .get('/api/project',tokenConfig(getState))
+    .get('/api/project')
     .then(res => {      
       dispatch({
           type: GET_PROJECT,

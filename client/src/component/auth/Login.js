@@ -30,7 +30,7 @@ class Login extends Component{
     }
 
     if(isAuthorize === true){
-      this.props.history.push('/project');
+      this.props.history.push('/');
     }
   }
   handleChecked = () => {

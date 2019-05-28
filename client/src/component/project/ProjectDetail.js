@@ -1,40 +1,44 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {deleteProject} from '../../actions/projectAction';
+import {getProject} from '../../actions/projectAction';
 
-class ProjectDetail extends Component{
+class ProjectDetail extends Component{ 
   componentDidMount(){
-      console.log(this.props);
+    this.props.getProject();   
   }
   handleDelete = (id) => {
     this.props.deleteProject(id);
-    this.props.history.push('/project');
   }
   render(){
-    const {project} = this.props;
-    return(
-      project ? (
-        <div className="ProjectDetail container">
-          <div className="content">
-            <span><b>{project.title}</b></span>
-            <p>{project.content}</p>
+    const {projects} = this.props;
+    const projectList = projects.length ? projects.map(project => {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' ,hour: 'numeric',minute:'numeric'};
+      const date = new Date(project.date);
+      return (
+        <div className="content" key={project._id}>
+          <p className="title"><b>{project.title}</b></p>
+          <p className="paragraph">{project.content}</p>
+          <div className="author-date">
             <p className="author">{project.author}</p>
-            <p className="date">{project.date}</p>
-            <button onClick={()=>{this.handleDelete(project._id)}}>delete</button>
+            <p className="date">{date.toLocaleDateString("id-in", options)}</p>
           </div>
+          <button className="del-project" onClick={()=>{this.handleDelete(project._id)}}>delete</button>
         </div>
-      ) : (null)
+      )
+    }) : <div></div>
+    return(
+      <div className={projects.length ? "ProjectDetail" : "ProjectDetail hide"}>
+        {projectList}
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id;
+const mapStateToProps = (state) => {
   return {
-    project: state.project.projects.find(element=>{
-      return element._id === id;
-    })
+    projects: state.project.projects
   }
 }
 
-export default connect(mapStateToProps,{deleteProject})(ProjectDetail);
+export default connect(mapStateToProps,{deleteProject,getProject})(ProjectDetail);
