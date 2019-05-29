@@ -2,13 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {deleteProject} from '../../actions/projectAction';
 import {getProject} from '../../actions/projectAction';
+import Notification from '../dashboard/Notification';
 
 class ProjectDetail extends Component{ 
-  componentDidMount(){
-    this.props.getProject();   
+    componentDidMount(){
+    this.props.getProject(); 
   }
   handleDelete = (id) => {
     this.props.deleteProject(id);
+  }  
+  scrollToMyRef = (id) => {
+    console.log(id);
+    window.scrollTo(0, this.refs[id].offsetTop);
   }
   render(){
     const {projects} = this.props;
@@ -16,8 +21,8 @@ class ProjectDetail extends Component{
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' ,hour: 'numeric',minute:'numeric'};
       const date = new Date(project.date);
       return (
-        <div className="content" key={project._id}>
-          <p className="title"><b>{project.title}</b></p>
+        <div className="content" ref={`${project._id}`} key={project._id}>
+          <p onClick={() => {this.scrollToMyRef(project._id)}} className="title"><b>{project.title}</b></p>
           <p className="paragraph">{project.content}</p>
           <div className="author-date">
             <p className="author">{project.author}</p>
@@ -26,10 +31,16 @@ class ProjectDetail extends Component{
           <button className="del-project" onClick={()=>{this.handleDelete(project._id)}}>delete</button>
         </div>
       )
-    }) : <div></div>
+    }) : <div className="no-project"><p><b>There is no project yet</b></p></div>;    
+   
     return(
-      <div className={projects.length ? "ProjectDetail" : "ProjectDetail hide"}>
-        {projectList}
+      <div className="ProjectDetail">             
+        <div ref="notif" className="notif">          
+         <Notification scrollToMyRef={this.scrollToMyRef}/>  
+        </div> 
+        <div className="list">
+         {projectList} 
+        </div>   
       </div>
     )
   }

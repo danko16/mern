@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
-import ProjectList from '../project/ProjectList';
-import Notification from './Notification';
+import ProjectDetail from '../project/ProjectDetail';
 import {connect} from 'react-redux';
 import {clearErrors} from '../../actions/errorAction';
 import propType from 'prop-types';
@@ -13,8 +12,7 @@ class DashBoard extends Component{
   render(){
     return(
       <div className="DashBoard container">
-        <Notification/>
-        <ProjectList/>        
+        <ProjectDetail/>        
       </div>
     )
   }
