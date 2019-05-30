@@ -4,6 +4,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+const {
+  JWT_SECRET = "ssh!this!jwt_secret",
+} = process.env;
+
 const User = require('../../models/user');
 
 router.post('/',(req,res)=>{
@@ -33,7 +37,7 @@ router.post('/',(req,res)=>{
                 newUser.save().then(user=>{
                     jwt.sign(
                         {id: user._id},
-                        process.env.JWT_SECRET,
+                        JWT_SECRET,
                         {expiresIn: 3600},
                         (err, token)=>{
                             if(err) throw err;
