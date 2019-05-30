@@ -30,7 +30,7 @@ class CreateProject extends Component{
     return(
       <div className="CreateProject Auth">
         <div className={this.state.isClose === false ? "modal" : "hide"}>                
-            <form className="modal-content animate" onSubmit={this.handleSubmit}>             
+            <form autoComplete="off"  className="modal-content animate" onSubmit={this.handleSubmit}>             
             <div className="container-auth">
                <div className="close-container">
                   <span className="close" onClick={this.handleClose} title="Close Modal">&times;</span>

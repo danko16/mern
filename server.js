@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
 
 require('dotenv').config();
@@ -24,6 +23,6 @@ app.use('/api/project', require('./routes/api/project'));
 app.use('/api/user', require('./routes/api/user'));
 app.use('/api/auth', require('./routes/api/auth'));
 
-app.listen(port, () => {
+app.listen(port, '127.0.0.1', () => {
   console.log(`server now listening at port ${port}`);
 });

@@ -64,7 +64,7 @@ class Register extends Component{
        return <div className="Register Auth">
                 <div className={this.state.isClose === false ? "modal" : "hide"}>
                 
-                    <form className="modal-content animate" onSubmit={this.handleSubmit}>
+                    <form autoComplete="off" className="modal-content animate" onSubmit={this.handleSubmit}>
                    
                         <div className="error-container">    
                           {errorBox}    
