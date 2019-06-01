@@ -5,6 +5,7 @@ import DashBoard from './component/dashboard/DashBoard';
 import CreateProject from './component/project/CreateProject';
 import Login from './component/auth/Login';
 import Register from './component/auth/Register';
+import NotFound from './component/layout/NotFound';
 import {BrowserRouter} from 'react-router-dom';
 import './App.css';
 import store from './store';
@@ -31,6 +32,7 @@ class App extends Component{
               <Route path="/create" component={CreateProject}/>
               <Route path="/login" component={Login}/>
               <Route path="/register" component={Register}/>
+              <Route path="*" component={NotFound} />
             </Switch>
           </div>
         </BrowserRouter>

@@ -13,9 +13,11 @@ class Navbar extends Component {
       icon: !this.state.icon
     });
   }
-  render(){
+  render(){   
+    const isNotFound = this.props.notFound === true ? "hide" : "";
+    const icon = this.state.icon === true ? "responsive-hide" : "";
     return(
-      <div className={this.state.icon === true ? "Navbar responsive-hide" : "Navbar"}>        
+      <div className={`Navbar ${isNotFound} ${icon}`}>        
         <div className={this.props.isAuthorize === true ? "avatar" : "avatar hide"}>
           <Link to="/user">DN</Link>  
         </div> 
@@ -33,7 +35,8 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   return{
     isAuthorize: state.auth.isAuthorize,
-    user: state.auth.user
+    user: state.auth.user,
+    notFound: state.error.notFound
   }
 }
 

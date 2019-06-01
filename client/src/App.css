@@ -3,7 +3,7 @@ html{
   scroll-behavior: smooth; 
   margin-top: 60px;
 }
-body{  
+body{    
   margin: 0 auto;
   min-height: 100%;
   background: url(/img/mario-bg.png) no-repeat;
@@ -326,8 +326,35 @@ body{
   animation: animatezoom 0.6s
 }
 
+.NotFound{  
+  position: absolute; top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
 
+.NotFound div{  
+  width: 100%;
+  margin: 15px auto;
+}
 
+.NotFound a {
+  display: block;
+  text-decoration: none;
+  color: white;  
+  background: #42af67;  
+  padding: 15px;
+  text-align: center;
+  width: 20%;
+  border-radius: 5px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.NotFound .img-notFound {
+  max-width: 100%;
+  height: auto;
+}
 
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
@@ -349,7 +376,6 @@ body{
      width: 100%;
   }
 }
-
 
 @media only screen and (max-width: 600px) {
   html{

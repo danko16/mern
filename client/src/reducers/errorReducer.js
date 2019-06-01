@@ -1,9 +1,10 @@
-import {GET_ERRORS, CLEAR_ERRORS} from '../actions/type';
+import {GET_ERRORS, CLEAR_ERRORS, NOT_FOUND} from '../actions/type';
 
 const initState = {
     msg: {},
     status: null,
-    id: null
+    id: null,
+    notFound: false
 };
 
 export default function (state = initState, action) {
@@ -19,6 +20,11 @@ export default function (state = initState, action) {
                 msg: {},
                 status: null,
                 id: null
+            };
+        case NOT_FOUND:
+            return {
+                ...state,
+                notFound: action.payload
             };
         default:
             return state;        
